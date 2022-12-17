@@ -1,0 +1,20 @@
+What to do when we call it as such:
+
+> AlternateCaps.exe
+- Idk man. Does nothing?
+
+> AlternateCaps.exe "Hello"
+- Takes in the argument and converts it into "hElLo"
+
+> AlternateCaps.exe --caps-first "Hello"
+- Takes in the argument and converts it into "HelLo". Instead of going "hE", go "He".
+  The order of capitalization is flipped.
+- --caps-first can be used anywhere if we need to change the order of capitalization.
+
+> AlternateCaps.exe "Hello" [--output|-o] file.txt
+- Takes in the argument and converts it into "hElLo", then writes that to a file called "file.txt".
+- Should we warn the user if the file already exists? Running the command above may result in the file getting overwritten.
+- But why not we use '>' instead? So we can do something like 'AlternateCaps.exe "Hello" > file.txt'. This allows writing to a file.
+
+> AlternateCaps.exe [--input|-i] input_file.txt
+- Takes in the path to the file as argument and alternates its caps. Then, write the output to stdout.
