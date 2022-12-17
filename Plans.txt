@@ -2,6 +2,8 @@ What to do when we call it as such:
 
 > AlternateCaps.exe
 - Idk man. Does nothing?
+- Maybe allow reading from stdin. This will probably allow pipes (|) to work.
+  See https://stackoverflow.com/questions/199528/c-sharp-console-receive-input-with-pipe
 
 > AlternateCaps.exe "Hello"
 - Takes in the argument and converts it into "hElLo"
