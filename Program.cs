@@ -7,12 +7,32 @@ public class Program
     {
         var rootCommand = new RootCommand("Alternates the captialization of text.");
 
-        var stringArg = new Argument<string>(
-            name: "input",
-            description: "Oh noes!"
+        var capsFirstOption = new Option<bool>(
+            name: "--caps-first",
+            description: "Uppercase, then lowercase. Unlike the default, which goes lowercase, then uppercase.",
+            getDefaultValue: () => false
         );
 
-        rootCommand.AddArgument(stringArg);
+        rootCommand.Add(capsFirstOption);
+
+        rootCommand.SetHandler(
+            isCapsFirst =>
+            {
+                string? input = "";
+                while (true)
+                {
+                    input = Console.ReadLine();
+
+                    if (input == null)
+                    {
+                        break;
+                    }
+
+                    Console.WriteLine(AlternateCaps(input, isCapsFirst));
+                }
+            },
+            capsFirstOption
+        );
 
         return await rootCommand.InvokeAsync(args);
     }
