@@ -18,6 +18,7 @@ namespace AlternateCapsTests
                     RedirectStandardOutput = true
                 };
 
+                // equiavlent to this command: ./AlternateCaps.exe
                 using Process? programProcess = Process.Start(startInfo);
 
                 // make sure that the process does exist
@@ -45,6 +46,7 @@ namespace AlternateCapsTests
                     RedirectStandardOutput = true
                 };
 
+                // equivalent to this command: ./AlternateCaps.exe --caps-first
                 using Process? programProcess = Process.Start(startInfo);
 
                 // make sure that the process does exist
