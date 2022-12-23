@@ -1,6 +1,6 @@
 namespace AlternateCapsTests
 {
-    public class Tests
+    public class AlternateCapsCLITests
     {
         [SetUp]
         public void Setup()
