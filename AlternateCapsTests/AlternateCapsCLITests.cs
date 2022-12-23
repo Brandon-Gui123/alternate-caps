@@ -2,11 +2,12 @@ using System.Diagnostics;
 
 namespace AlternateCapsTests
 {
+    [Timeout(10_000)]
     public class AlternateCapsCLITests
     {
         public class RunningWithouArguments
         {
-            [Test, Timeout(10_000)]
+            [Test]
             public void ProcessFromStandardInput_OutputFormattedText()
             {
                 ProcessStartInfo startInfo = new()
@@ -33,7 +34,7 @@ namespace AlternateCapsTests
                 Assert.That(output, Is.Not.Null.And.EqualTo(expected));
             }
 
-            [Test, Timeout(10_000)]
+            [Test]
             public void CapsFirstOption_ProcessFromStandardInput_OutputFormattedText()
             {
                 ProcessStartInfo startInfo = new()
