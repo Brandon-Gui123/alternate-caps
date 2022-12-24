@@ -13,25 +13,39 @@ public class Program
             getDefaultValue: () => false
         );
 
+        var stringToProcessArgument = new Argument<string?>(
+            name: "stringToProcess",
+            description: "The string to give to the program to process and alter the capitalization of.",
+            getDefaultValue: () => null
+        );
+
         rootCommand.Add(capsFirstOption);
+        rootCommand.Add(stringToProcessArgument);
 
         rootCommand.SetHandler(
-            isCapsFirst =>
+            (isCapsFirst, stringToProcess) =>
             {
-                string? input = "";
-                while (true)
+                if (stringToProcess == null)
                 {
-                    input = Console.ReadLine();
-
-                    if (input == null)
+                    string? input = "";
+                    while (true)
                     {
-                        break;
-                    }
+                        input = Console.ReadLine();
 
-                    Console.WriteLine(AlternateCaps(input, isCapsFirst));
+                        if (input == null)
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine(AlternateCaps(input, isCapsFirst));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(AlternateCaps(stringToProcess, isCapsFirst));
                 }
             },
-            capsFirstOption
+            capsFirstOption, stringToProcessArgument
         );
 
         return await rootCommand.InvokeAsync(args);
