@@ -12,6 +12,7 @@ public class Program
             description: "Uppercase, then lowercase. Unlike the default, which goes lowercase, then uppercase.",
             getDefaultValue: () => false
         );
+        capsFirstOption.AddAlias("-c");
 
         var stringToProcessArgument = new Argument<string?>(
             name: "stringToProcess",
